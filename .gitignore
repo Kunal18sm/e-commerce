@@ -1,0 +1,17 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Build/runtime outputs
+target/
+runtime_build/
+runtime_build_v2/
+runtime_run_*/
+
+# IDE/system files
+.idea/
+.vscode/
+*.log
+Thumbs.db
+.DS_Store
