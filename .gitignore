@@ -4,6 +4,7 @@
 !.env.example
 
 # Build/runtime outputs
+build/
 target/
 runtime_build/
 runtime_build_v2/

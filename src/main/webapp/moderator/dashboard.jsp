@@ -10,16 +10,16 @@
             <div class="sidebar-label">Moderator Panel</div>
             <nav class="sidebar-nav">
                 <a href="${pageContext.request.contextPath}/mod/dashboard" class="active">
-                    <span class="nav-icon">📊</span> Dashboard
+                    <span class="nav-icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></span> Dashboard
                 </a>
                 <a href="${pageContext.request.contextPath}/mod/products">
-                    <span class="nav-icon">📦</span> Products
+                    <span class="nav-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></span> Products
                 </a>
                 <a href="${pageContext.request.contextPath}/mod/users">
-                    <span class="nav-icon">👥</span> Users
+                    <span class="nav-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span> Users
                 </a>
                 <a href="${pageContext.request.contextPath}/mod/orders">
-                    <span class="nav-icon">🛒</span> Orders
+                    <span class="nav-icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></span> Orders
                 </a>
             </nav>
         </div>
@@ -27,10 +27,10 @@
             <div class="sidebar-label">Quick Links</div>
             <nav class="sidebar-nav">
                 <a href="${pageContext.request.contextPath}/products">
-                    <span class="nav-icon">🏠</span> View Store
+                    <span class="nav-icon"><i class="fa-solid fa-house" aria-hidden="true"></i></span> View Store
                 </a>
                 <a href="${pageContext.request.contextPath}/profile">
-                    <span class="nav-icon">👤</span> My Profile
+                    <span class="nav-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span> My Profile
                 </a>
             </nav>
         </div>
@@ -38,28 +38,28 @@
 
     <div class="dashboard-content">
         <div class="page-header">
-            <h1>📊 Moderator Dashboard</h1>
+            <h1><i class="fa-solid fa-chart-column" aria-hidden="true"></i> Moderator Dashboard</h1>
             <p>Welcome, ${loggedUser.displayName}! Here's your overview.</p>
         </div>
 
         <div class="stat-grid">
             <div class="stat-card stat-primary">
-                <div class="stat-icon">👥</div>
+                <div class="stat-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
                 <div class="stat-value">${totalUsers}</div>
                 <div class="stat-label">Total Users</div>
             </div>
             <div class="stat-card stat-warning">
-                <div class="stat-icon">📦</div>
+                <div class="stat-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></div>
                 <div class="stat-value">${totalProducts}</div>
                 <div class="stat-label">Products</div>
             </div>
             <div class="stat-card stat-success">
-                <div class="stat-icon">🛒</div>
+                <div class="stat-icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></div>
                 <div class="stat-value">${totalOrders}</div>
                 <div class="stat-label">Total Orders</div>
             </div>
             <div class="stat-card stat-danger">
-                <div class="stat-icon">💰</div>
+                <div class="stat-icon"><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i></div>
                 <div class="stat-value">₹<fmt:formatNumber value="${totalRevenue}" pattern="#,##0"/></div>
                 <div class="stat-label">Revenue</div>
             </div>
@@ -68,14 +68,14 @@
         <!-- Recent Orders -->
         <div class="card">
             <div class="card-header">
-                <span>📋 Recent Orders</span>
+                <span><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Recent Orders</span>
                 <a href="${pageContext.request.contextPath}/mod/orders" class="btn btn-sm btn-secondary">View All →</a>
             </div>
             <c:choose>
                 <c:when test="${empty recentOrders}">
                     <div class="card-body">
                         <div class="empty-state" style="padding:32px;">
-                            <div class="empty-icon" style="font-size:2rem;">📋</div>
+                            <div class="empty-icon" style="font-size:2rem;"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i></div>
                             <p class="text-muted">No orders yet.</p>
                         </div>
                     </div>

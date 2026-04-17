@@ -51,7 +51,13 @@ public class LoginServlet extends HttpServlet {
         User user = userDAO.login(username, password);
 
         if (user == null) {
-            request.setAttribute("error", "Invalid username or password.");
+            String loginError = userDAO.consumeLastLoginError();
+            if (UserDAO.LOGIN_ERROR_DB.equals(loginError)) {
+                request.setAttribute("error",
+                        "Database connection failed. Please check .env DB settings and ensure MySQL is reachable.");
+            } else {
+                request.setAttribute("error", "Invalid username or password.");
+            }
             request.setAttribute("username", username);
             request.getRequestDispatcher("/login.jsp").forward(request, response);
             return;

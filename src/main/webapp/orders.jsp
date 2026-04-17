@@ -6,14 +6,14 @@
 
 <div class="container page-wrapper">
     <div class="page-header">
-        <h1>📦 My Orders</h1>
+        <h1><i class="fa-solid fa-box-open" aria-hidden="true"></i> My Orders</h1>
         <p>Track your order history and delivery status</p>
     </div>
 
     <c:choose>
         <c:when test="${empty orders}">
             <div class="empty-state">
-                <div class="empty-icon">📦</div>
+                <div class="empty-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></div>
                 <h3>No Orders Yet</h3>
                 <p>You haven't placed any orders yet. Start shopping to see your orders here!</p>
                 <a href="${pageContext.request.contextPath}/products" class="btn btn-primary">Start Shopping</a>
@@ -32,12 +32,12 @@
                     <div class="order-card-body">
                         <div class="order-product-thumb cat-${order.productName != null && order.productName.contains('Headphone') ? 'electronics' : 'general'}"
                              style="background:linear-gradient(135deg, var(--primary), var(--primary-light));">
-                            📦
+                            <i class="fa-solid fa-box-open" aria-hidden="true"></i>
                         </div>
                         <div style="flex:1;">
                             <div style="font-weight:600; margin-bottom:4px;">${order.productName}</div>
                             <div class="text-small text-muted">Qty: ${order.quantity} × ₹<fmt:formatNumber value="${order.productPrice}" pattern="#,##0.00"/></div>
-                            <div class="text-small text-muted">📍 ${order.address}</div>
+                            <div class="text-small text-muted"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> ${order.address}</div>
                         </div>
                         <div style="text-align:right;">
                             <div style="font-weight:800; font-size:1.1rem; color:var(--primary-dark);">

@@ -9,17 +9,17 @@
         <div class="sidebar-section">
             <div class="sidebar-label">Moderator Panel</div>
             <nav class="sidebar-nav">
-                <a href="${pageContext.request.contextPath}/mod/dashboard"><span class="nav-icon">📊</span> Dashboard</a>
-                <a href="${pageContext.request.contextPath}/mod/products"><span class="nav-icon">📦</span> Products</a>
-                <a href="${pageContext.request.contextPath}/mod/users"><span class="nav-icon">👥</span> Users</a>
-                <a href="${pageContext.request.contextPath}/mod/orders" class="active"><span class="nav-icon">🛒</span> Orders</a>
+                <a href="${pageContext.request.contextPath}/mod/dashboard"><span class="nav-icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></span> Dashboard</a>
+                <a href="${pageContext.request.contextPath}/mod/products"><span class="nav-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></span> Products</a>
+                <a href="${pageContext.request.contextPath}/mod/users"><span class="nav-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span> Users</a>
+                <a href="${pageContext.request.contextPath}/mod/orders" class="active"><span class="nav-icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></span> Orders</a>
             </nav>
         </div>
     </aside>
 
     <div class="dashboard-content">
         <div class="page-header">
-            <h1>🛒 Manage Orders</h1>
+            <h1><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Manage Orders</h1>
             <p class="text-muted">View and update order statuses</p>
         </div>
 
@@ -78,7 +78,7 @@
                                                 <input type="hidden" name="id" value="${o.orderId}">
                                                 <button type="button" class="btn btn-sm btn-danger"
                                                         onclick="confirmDelete('Delete order #${o.orderId}?', 'mod-del-order-${o.orderId}')">
-                                                    🗑️
+                                                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
                                                 </button>
                                             </form>
                                         </div>

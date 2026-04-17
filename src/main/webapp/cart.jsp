@@ -6,18 +6,18 @@
 
 <div class="container page-wrapper">
     <div class="page-header">
-        <h1>🛒 Shopping Cart</h1>
+        <h1><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Shopping Cart</h1>
         <p>Review your items before checkout</p>
     </div>
 
     <c:if test="${not empty error}">
-        <div class="alert alert-danger">⚠️ ${error}</div>
+        <div class="alert alert-danger"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> ${error}</div>
     </c:if>
 
     <c:choose>
         <c:when test="${empty cartItems}">
             <div class="empty-state">
-                <div class="empty-icon">🛒</div>
+                <div class="empty-icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></div>
                 <h3>Your Cart is Empty</h3>
                 <p>Looks like you haven't added any items to your cart yet.</p>
                 <a href="${pageContext.request.contextPath}/products" class="btn btn-primary">Start Shopping</a>
@@ -39,12 +39,12 @@
                                     item.category == 'Home & Kitchen' ? 'home' : 
                                     item.category == 'Books' ? 'books' : 'general'}">
                                     <c:choose>
-                                        <c:when test="${item.category == 'Electronics'}">💻</c:when>
-                                        <c:when test="${item.category == 'Clothing'}">👕</c:when>
-                                        <c:when test="${item.category == 'Sports'}">⚽</c:when>
-                                        <c:when test="${item.category == 'Home & Kitchen'}">🏠</c:when>
-                                        <c:when test="${item.category == 'Books'}">📚</c:when>
-                                        <c:otherwise>📦</c:otherwise>
+                                        <c:when test="${item.category == 'Electronics'}"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></c:when>
+                                        <c:when test="${item.category == 'Clothing'}"><i class="fa-solid fa-shirt" aria-hidden="true"></i></c:when>
+                                        <c:when test="${item.category == 'Sports'}"><i class="fa-solid fa-futbol" aria-hidden="true"></i></c:when>
+                                        <c:when test="${item.category == 'Home & Kitchen'}"><i class="fa-solid fa-house" aria-hidden="true"></i></c:when>
+                                        <c:when test="${item.category == 'Books'}"><i class="fa-solid fa-book-open" aria-hidden="true"></i></c:when>
+                                        <c:otherwise><i class="fa-solid fa-box-open" aria-hidden="true"></i></c:otherwise>
                                     </c:choose>
                                 </div>
                                 <div class="item-details">
@@ -63,7 +63,7 @@
                                     </div>
                                     <button class="btn btn-sm" style="color:var(--danger); background:none; padding:4px 8px; font-size:0.8rem;"
                                             onclick="removeFromCart(${item.productId})">
-                                        🗑️ Remove
+                                        <i class="fa-solid fa-trash" aria-hidden="true"></i> Remove
                                     </button>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                                       placeholder="Enter delivery address" required>${loggedUser.address}</textarea>
                         </div>
                         <button type="submit" class="btn btn-success btn-block btn-lg" id="checkout-btn">
-                            ✅ Place Order
+                            <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Place Order
                         </button>
                     </form>
 

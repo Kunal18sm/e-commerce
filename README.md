@@ -52,6 +52,11 @@ Client (Browser/Android)  →  HTTP  →  JSP/Servlet (Tomcat)  →  JDBC  →  
    DB_NAME=shopzone
    DB_USER=root
    DB_PASS=your_password
+   DB_SSL=false
+   ```
+   Or use a direct service URI:
+   ```
+   DB_SERVICE_URI=mysql://user:pass@host:port/dbname?ssl-mode=REQUIRED
    ```
 4. (Optional) Enable Cloudinary image upload by adding:
    ```

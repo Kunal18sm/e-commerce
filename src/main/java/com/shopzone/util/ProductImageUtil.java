@@ -288,9 +288,15 @@ public final class ProductImageUtil {
 
         static CloudinaryConfig fromEnv() {
             return new CloudinaryConfig(
-                    normalize(EnvLoader.get("CLOUDINARY_CLOUD_NAME")),
-                    normalize(EnvLoader.get("CLOUDINARY_API_KEY")),
-                    normalize(EnvLoader.get("CLOUDINARY_API_SECRET")),
+                    normalize(firstNonBlank(
+                            EnvLoader.get("CLOUDINARY_CLOUD_NAME"),
+                            EnvLoader.get("PERMANENT_CLOUD_NAME"))),
+                    normalize(firstNonBlank(
+                            EnvLoader.get("CLOUDINARY_API_KEY"),
+                            EnvLoader.get("PERMANENT_CLOUD_API_KEY"))),
+                    normalize(firstNonBlank(
+                            EnvLoader.get("CLOUDINARY_API_SECRET"),
+                            EnvLoader.get("PERMANENT_CLOUD_API_SECRET"))),
                     normalize(EnvLoader.get("CLOUDINARY_UPLOAD_PRESET")),
                     normalize(EnvLoader.get("CLOUDINARY_FOLDER", "shopzone"))
             );
@@ -300,6 +306,14 @@ public final class ProductImageUtil {
             boolean hasUnsigned = cloudName != null && uploadPreset != null;
             boolean hasSigned = cloudName != null && apiKey != null && apiSecret != null;
             return hasUnsigned || hasSigned;
+        }
+
+        private static String firstNonBlank(String first, String second) {
+            String normalizedFirst = normalize(first);
+            if (normalizedFirst != null) {
+                return normalizedFirst;
+            }
+            return normalize(second);
         }
 
         private static String normalize(String value) {

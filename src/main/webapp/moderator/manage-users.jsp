@@ -8,22 +8,22 @@
         <div class="sidebar-section">
             <div class="sidebar-label">Moderator Panel</div>
             <nav class="sidebar-nav">
-                <a href="${pageContext.request.contextPath}/mod/dashboard"><span class="nav-icon">📊</span> Dashboard</a>
-                <a href="${pageContext.request.contextPath}/mod/products"><span class="nav-icon">📦</span> Products</a>
-                <a href="${pageContext.request.contextPath}/mod/users" class="active"><span class="nav-icon">👥</span> Users</a>
-                <a href="${pageContext.request.contextPath}/mod/orders"><span class="nav-icon">🛒</span> Orders</a>
+                <a href="${pageContext.request.contextPath}/mod/dashboard"><span class="nav-icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></span> Dashboard</a>
+                <a href="${pageContext.request.contextPath}/mod/products"><span class="nav-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></span> Products</a>
+                <a href="${pageContext.request.contextPath}/mod/users" class="active"><span class="nav-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span> Users</a>
+                <a href="${pageContext.request.contextPath}/mod/orders"><span class="nav-icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></span> Orders</a>
             </nav>
         </div>
     </aside>
 
     <div class="dashboard-content">
         <div class="page-header">
-            <h1>👥 Manage Users</h1>
+            <h1><i class="fa-solid fa-users" aria-hidden="true"></i> Manage Users</h1>
             <p class="text-muted">View and manage customer accounts</p>
         </div>
 
         <form action="${pageContext.request.contextPath}/mod/users" method="GET" class="search-bar mb-3" style="max-width:400px;">
-            <span class="search-icon">🔍</span>
+            <span class="search-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
             <input type="text" name="q" placeholder="Search users..." value="${searchQuery}">
             <button type="submit">→</button>
         </form>
@@ -78,7 +78,14 @@
                                                 <input type="hidden" name="action" value="toggleUser">
                                                 <input type="hidden" name="id" value="${u.uid}">
                                                 <button type="submit" class="btn btn-sm ${u.enabled ? 'btn-warning' : 'btn-success'}">
-                                                    ${u.enabled ? '🔒 Block' : '🔓 Unblock'}
+                                                    <c:choose>
+                                                        <c:when test="${u.enabled}">
+                                                            <i class="fa-solid fa-lock" aria-hidden="true"></i> Block
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <i class="fa-solid fa-lock-open" aria-hidden="true"></i> Unblock
+                                                        </c:otherwise>
+                                                    </c:choose>
                                                 </button>
                                             </form>
                                             <form action="${pageContext.request.contextPath}/mod/users" method="POST"
@@ -87,7 +94,7 @@
                                                 <input type="hidden" name="id" value="${u.uid}">
                                                 <button type="button" class="btn btn-sm btn-danger"
                                                         onclick="confirmDelete('Delete user: ${u.name}?', 'mod-del-user-${u.uid}')">
-                                                    🗑️
+                                                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
                                                 </button>
                                             </form>
                                         </div>

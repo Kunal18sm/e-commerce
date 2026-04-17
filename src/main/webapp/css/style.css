@@ -4,28 +4,28 @@
    ============================================= */
 
 /* ---- Google Fonts ---- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap');
 
 /* =============================================
    CSS CUSTOM PROPERTIES (Design Tokens)
    ============================================= */
 :root {
     /* Primary Palette */
-    --primary: #4F46E5;
-    --primary-light: #818CF8;
-    --primary-dark: #3730A3;
-    --primary-50: #EEF2FF;
-    --primary-100: #E0E7FF;
+    --primary: #0B5ED7;
+    --primary-light: #3D8BFF;
+    --primary-dark: #084298;
+    --primary-50: #EAF2FF;
+    --primary-100: #D8E8FF;
 
     /* Secondary */
-    --secondary: #0EA5E9;
-    --secondary-light: #38BDF8;
-    --secondary-dark: #0284C7;
+    --secondary: #0F766E;
+    --secondary-light: #14B8A6;
+    --secondary-dark: #115E59;
 
     /* Accent */
-    --accent: #F59E0B;
-    --accent-light: #FCD34D;
-    --accent-dark: #D97706;
+    --accent: #F97316;
+    --accent-light: #FDBA74;
+    --accent-dark: #C2410C;
 
     /* Semantic Colors */
     --success: #10B981;
@@ -51,12 +51,13 @@
     --gray-900: #0F172A;
 
     /* Layout */
-    --bg-body: #F0F4F8;
+    --bg-body: #F5F8FC;
     --bg-surface: #FFFFFF;
     --bg-elevated: #FFFFFF;
 
     /* Typography */
-    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-display: 'Outfit', 'Manrope', sans-serif;
     --text-primary: #1E293B;
     --text-secondary: #64748B;
     --text-muted: #94A3B8;
@@ -104,7 +105,10 @@ body {
     font-size: 15px;
     line-height: 1.6;
     color: var(--text-primary);
-    background: var(--bg-body);
+    background:
+        radial-gradient(circle at 10% -12%, rgba(61, 139, 255, 0.14), transparent 40%),
+        radial-gradient(circle at 92% -8%, rgba(20, 184, 166, 0.11), transparent 38%),
+        var(--bg-body);
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -134,6 +138,7 @@ ul, ol {
    TYPOGRAPHY
    ============================================= */
 h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
     font-weight: 700;
     line-height: 1.3;
     color: var(--text-primary);
@@ -143,6 +148,10 @@ h1 { font-size: 2rem; }
 h2 { font-size: 1.625rem; }
 h3 { font-size: 1.25rem; }
 h4 { font-size: 1.1rem; }
+
+i.fa-solid, i.fa-regular {
+    line-height: 1;
+}
 
 .text-muted { color: var(--text-secondary); }
 .text-small { font-size: 0.85rem; }
@@ -198,13 +207,14 @@ h4 { font-size: 1.1rem; }
    NAVBAR
    ============================================= */
 .navbar {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.88);
     height: var(--nav-height);
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(10px);
 }
 
 .navbar .container {
@@ -218,10 +228,10 @@ h4 { font-size: 1.1rem; }
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 800;
     color: var(--primary) !important;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.2px;
 }
 
 .navbar-brand .brand-icon {
@@ -233,8 +243,8 @@ h4 { font-size: 1.1rem; }
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.2rem;
-    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+    font-size: 1.05rem;
+    box-shadow: 0 8px 18px rgba(11, 94, 215, 0.25);
 }
 
 .navbar-nav {
@@ -258,6 +268,12 @@ h4 { font-size: 1.1rem; }
     border: none;
     background: none;
     text-decoration: none;
+}
+
+.navbar-nav a i,
+.navbar-nav .nav-link i {
+    width: 16px;
+    text-align: center;
 }
 
 .navbar-nav a:hover,
@@ -367,13 +383,13 @@ h4 { font-size: 1.1rem; }
 .btn-primary {
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
-    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+    box-shadow: 0 6px 14px rgba(11, 94, 215, 0.24);
 }
 
 .btn-primary:hover {
     background: linear-gradient(135deg, var(--primary-light), var(--primary));
     color: white;
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+    box-shadow: 0 10px 18px rgba(11, 94, 215, 0.30);
 }
 
 .btn-secondary {
@@ -538,12 +554,12 @@ h4 { font-size: 1.1rem; }
     );
 }
 
-.cat-electronics { background: linear-gradient(135deg, #667EEA, #764BA2); }
-.cat-clothing { background: linear-gradient(135deg, #F093FB, #F5576C); }
-.cat-sports { background: linear-gradient(135deg, #4FACFE, #00F2FE); }
-.cat-home { background: linear-gradient(135deg, #43E97B, #38F9D7); }
-.cat-books { background: linear-gradient(135deg, #FA709A, #FEE140); }
-.cat-general { background: linear-gradient(135deg, #A18CD1, #FBC2EB); }
+.cat-electronics { background: linear-gradient(135deg, #2563EB, #0EA5E9); }
+.cat-clothing { background: linear-gradient(135deg, #EF4444, #F97316); }
+.cat-sports { background: linear-gradient(135deg, #0EA5E9, #06B6D4); }
+.cat-home { background: linear-gradient(135deg, #16A34A, #22C55E); }
+.cat-books { background: linear-gradient(135deg, #C2410C, #FB923C); }
+.cat-general { background: linear-gradient(135deg, #0F766E, #14B8A6); }
 
 .product-card .product-info {
     padding: 18px;
@@ -614,6 +630,8 @@ h4 { font-size: 1.1rem; }
     color: white;
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 36px rgba(8, 66, 152, 0.20);
 }
 
 .hero::before {
@@ -692,7 +710,7 @@ h4 { font-size: 1.1rem; }
     background: var(--primary);
     color: white;
     border-color: var(--primary);
-    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+    box-shadow: 0 8px 16px rgba(11, 94, 215, 0.2);
 }
 
 /* =============================================
@@ -731,7 +749,7 @@ h4 { font-size: 1.1rem; }
     top: 50%;
     transform: translateY(-50%);
     color: var(--text-muted);
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .search-bar button {
@@ -820,7 +838,10 @@ select.form-control {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 50%, #DBEAFE 100%);
+    background:
+        radial-gradient(circle at 12% 8%, rgba(61, 139, 255, 0.25), transparent 42%),
+        radial-gradient(circle at 84% 6%, rgba(20, 184, 166, 0.2), transparent 35%),
+        linear-gradient(160deg, #F6FAFF 0%, #EBF4FF 60%, #E8F8F5 100%);
     padding: 24px;
 }
 
@@ -851,6 +872,7 @@ select.form-control {
     font-size: 1.8rem;
     margin: 0 auto 16px;
     backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .auth-header h2 {
@@ -1007,7 +1029,7 @@ select.form-control {
 /* Sidebar */
 .sidebar {
     width: var(--sidebar-width);
-    background: var(--white);
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8FBFF 100%);
     border-right: 1px solid var(--border-color);
     padding: 24px 16px;
     position: sticky;
@@ -1059,6 +1081,10 @@ select.form-control {
     font-size: 1.15rem;
     width: 24px;
     text-align: center;
+}
+
+.sidebar-nav .nav-icon i {
+    font-size: 0.95rem;
 }
 
 .dashboard-content {
@@ -1114,6 +1140,7 @@ select.form-control {
     justify-content: center;
     font-size: 1.5rem;
     margin-bottom: 14px;
+    color: var(--primary-dark);
 }
 
 .stat-primary .stat-icon { background: var(--primary-50); }
@@ -1520,6 +1547,13 @@ select.form-control {
     font-weight: 500;
 }
 
+.toast .toast-icon {
+    width: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .toast.toast-success { border-left-color: var(--success); }
 .toast.toast-error { border-left-color: var(--danger); }
 .toast.toast-warning { border-left-color: var(--warning); }
@@ -1543,6 +1577,10 @@ select.form-control {
     opacity: 0.6;
 }
 
+.empty-state .empty-icon i {
+    color: var(--primary);
+}
+
 .empty-state h3 {
     color: var(--text-secondary);
     margin-bottom: 8px;
@@ -1557,7 +1595,7 @@ select.form-control {
    FOOTER
    ============================================= */
 .site-footer {
-    background: var(--white);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), #FFFFFF);
     border-top: 1px solid var(--border-color);
     padding: 24px 0;
     margin-top: 48px;

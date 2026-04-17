@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Create your ShopZone account and start shopping.">
     <title>Register | ShopZone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
@@ -14,14 +15,14 @@
 <div class="auth-wrapper">
     <div class="auth-card animate-scaleIn" style="max-width:520px;">
         <div class="auth-header">
-            <div class="auth-logo">✨</div>
+            <div class="auth-logo"><i class="fa-solid fa-sparkles" aria-hidden="true"></i></div>
             <h2>Create Account</h2>
             <p>Join ShopZone and start shopping today</p>
         </div>
 
         <div class="auth-body">
             <c:if test="${not empty error}">
-                <div class="alert alert-danger">⚠️ ${error}</div>
+                <div class="alert alert-danger"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> ${error}</div>
             </c:if>
 
             <form action="${pageContext.request.contextPath}/register" method="POST" id="registerForm">
@@ -72,7 +73,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block btn-lg" id="registerBtn">
-                    ✨ Create Account
+                    <i class="fa-solid fa-sparkles" aria-hidden="true"></i> Create Account
                 </button>
 
                 <p class="text-center text-small text-muted mt-2">

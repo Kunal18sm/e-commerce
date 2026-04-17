@@ -41,12 +41,12 @@
                         product.category == 'Books' ? 'books' : 'general'}"
                          style="display:none;">
                         <c:choose>
-                            <c:when test="${product.category == 'Electronics'}">💻</c:when>
-                            <c:when test="${product.category == 'Clothing'}">👕</c:when>
-                            <c:when test="${product.category == 'Sports'}">⚽</c:when>
-                            <c:when test="${product.category == 'Home & Kitchen'}">🏠</c:when>
-                            <c:when test="${product.category == 'Books'}">📚</c:when>
-                            <c:otherwise>📦</c:otherwise>
+                            <c:when test="${product.category == 'Electronics'}"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></c:when>
+                            <c:when test="${product.category == 'Clothing'}"><i class="fa-solid fa-shirt" aria-hidden="true"></i></c:when>
+                            <c:when test="${product.category == 'Sports'}"><i class="fa-solid fa-futbol" aria-hidden="true"></i></c:when>
+                            <c:when test="${product.category == 'Home & Kitchen'}"><i class="fa-solid fa-house" aria-hidden="true"></i></c:when>
+                            <c:when test="${product.category == 'Books'}"><i class="fa-solid fa-book-open" aria-hidden="true"></i></c:when>
+                            <c:otherwise><i class="fa-solid fa-box-open" aria-hidden="true"></i></c:otherwise>
                         </c:choose>
                     </div>
                 </c:when>
@@ -57,12 +57,12 @@
                         product.category == 'Home & Kitchen' ? 'home' : 
                         product.category == 'Books' ? 'books' : 'general'}">
                         <c:choose>
-                            <c:when test="${product.category == 'Electronics'}">💻</c:when>
-                            <c:when test="${product.category == 'Clothing'}">👕</c:when>
-                            <c:when test="${product.category == 'Sports'}">⚽</c:when>
-                            <c:when test="${product.category == 'Home & Kitchen'}">🏠</c:when>
-                            <c:when test="${product.category == 'Books'}">📚</c:when>
-                            <c:otherwise>📦</c:otherwise>
+                            <c:when test="${product.category == 'Electronics'}"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></c:when>
+                            <c:when test="${product.category == 'Clothing'}"><i class="fa-solid fa-shirt" aria-hidden="true"></i></c:when>
+                            <c:when test="${product.category == 'Sports'}"><i class="fa-solid fa-futbol" aria-hidden="true"></i></c:when>
+                            <c:when test="${product.category == 'Home & Kitchen'}"><i class="fa-solid fa-house" aria-hidden="true"></i></c:when>
+                            <c:when test="${product.category == 'Books'}"><i class="fa-solid fa-book-open" aria-hidden="true"></i></c:when>
+                            <c:otherwise><i class="fa-solid fa-box-open" aria-hidden="true"></i></c:otherwise>
                         </c:choose>
                     </div>
                 </c:otherwise>
@@ -91,19 +91,19 @@
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg" id="add-to-cart-btn" style="margin-top:18px;">
-                            🛒 Add to Cart
+                            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Add to Cart
                         </button>
                     </form>
                 </c:if>
                 <c:if test="${empty loggedUser}">
                     <a href="${pageContext.request.contextPath}/login" class="btn btn-primary btn-lg">
-                        🔑 Login to Purchase
+                        <i class="fa-solid fa-key" aria-hidden="true"></i> Login to Purchase
                     </a>
                 </c:if>
 
                 <!-- Product Details Card -->
                 <div class="card mt-3">
-                    <div class="card-header">📋 Product Details</div>
+                    <div class="card-header"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Product Details</div>
                     <div class="card-body">
                         <table style="width:100%;">
                             <tr>
@@ -124,7 +124,7 @@
                             </tr>
                             <tr>
                                 <td style="padding:8px 0; color:var(--text-secondary);">Delivery</td>
-                                <td style="padding:8px 0; font-weight:600;">🚚 Home Delivery Available</td>
+                                <td style="padding:8px 0; font-weight:600;"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Home Delivery Available</td>
                             </tr>
                         </table>
                     </div>
@@ -135,7 +135,7 @@
 
     <c:if test="${empty product}">
         <div class="empty-state">
-            <div class="empty-icon">😕</div>
+            <div class="empty-icon"><i class="fa-regular fa-face-frown-open" aria-hidden="true"></i></div>
             <h3>Product Not Found</h3>
             <p>The product you're looking for doesn't exist or has been removed.</p>
             <a href="${pageContext.request.contextPath}/products" class="btn btn-primary">Browse Products</a>

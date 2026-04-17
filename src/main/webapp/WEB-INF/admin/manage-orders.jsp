@@ -9,18 +9,18 @@
         <div class="sidebar-section">
             <div class="sidebar-label">Admin Panel</div>
             <nav class="sidebar-nav">
-                <a href="${pageContext.request.contextPath}/admin/dashboard"><span class="nav-icon">📊</span> Dashboard</a>
-                <a href="${pageContext.request.contextPath}/admin/products"><span class="nav-icon">📦</span> Products</a>
-                <a href="${pageContext.request.contextPath}/admin/users"><span class="nav-icon">👥</span> Users</a>
-                <a href="${pageContext.request.contextPath}/admin/moderators"><span class="nav-icon">🛡️</span> Moderators</a>
-                <a href="${pageContext.request.contextPath}/admin/orders" class="active"><span class="nav-icon">🛒</span> Orders</a>
+                <a href="${pageContext.request.contextPath}/admin/dashboard"><span class="nav-icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></span> Dashboard</a>
+                <a href="${pageContext.request.contextPath}/admin/products"><span class="nav-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></span> Products</a>
+                <a href="${pageContext.request.contextPath}/admin/users"><span class="nav-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span> Users</a>
+                <a href="${pageContext.request.contextPath}/admin/moderators"><span class="nav-icon"><i class="fa-solid fa-user-shield" aria-hidden="true"></i></span> Moderators</a>
+                <a href="${pageContext.request.contextPath}/admin/orders" class="active"><span class="nav-icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></span> Orders</a>
             </nav>
         </div>
     </aside>
 
     <div class="dashboard-content">
         <div class="page-header">
-            <h1>🛒 Manage Orders</h1>
+            <h1><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Manage Orders</h1>
             <p class="text-muted">View, update, and manage all customer orders</p>
         </div>
 
@@ -81,7 +81,7 @@
                                                 <input type="hidden" name="id" value="${o.orderId}">
                                                 <button type="button" class="btn btn-sm btn-danger"
                                                         onclick="confirmDelete('Delete order #${o.orderId}?', 'delete-order-${o.orderId}')">
-                                                    🗑️
+                                                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
                                                 </button>
                                             </form>
                                         </div>

@@ -5,7 +5,7 @@
 <footer class="site-footer">
     <div class="container">
         <p>&copy; 2026 ShopZone. All rights reserved.</p>
-        <p>Built with ❤️ | Premium Online Shopping</p>
+        <p>Built with <i class="fa-solid fa-heart" aria-hidden="true"></i> | Premium Online Shopping</p>
     </div>
 </footer>
 

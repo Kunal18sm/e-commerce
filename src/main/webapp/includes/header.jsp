@@ -24,6 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ShopZone - Your premium online shopping destination for electronics, clothing, sports gear, and more.">
     <title>${pageTitle != null ? pageTitle : 'ShopZone'} | Online Shopping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="${ctxPath}/css/style.css">
 </head>
 <body>
@@ -32,29 +33,29 @@
 <nav class="navbar">
     <div class="container">
         <a href="${ctxPath}/products" class="navbar-brand">
-            <span class="brand-icon">🛍️</span>
+            <span class="brand-icon"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i></span>
             ShopZone
         </a>
 
         <div class="navbar-nav">
-            <a href="${ctxPath}/products" id="nav-home">🏠 Home</a>
+            <a href="${ctxPath}/products" id="nav-home"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
 
             <c:choose>
                 <c:when test="${loggedUser != null}">
                     <c:if test="${loggedUser.utype == 'user'}">
                         <a href="${ctxPath}/cart" id="nav-cart" class="nav-cart-badge">
-                            🛒 Cart
+                            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Cart
                             <c:if test="${cartCount > 0}">
                                 <span class="badge-count">${cartCount}</span>
                             </c:if>
                         </a>
-                        <a href="${ctxPath}/orders" id="nav-orders">📦 Orders</a>
+                        <a href="${ctxPath}/orders" id="nav-orders"><i class="fa-solid fa-box-open" aria-hidden="true"></i> Orders</a>
                     </c:if>
                     <c:if test="${loggedUser.utype == 'admin'}">
-                        <a href="${ctxPath}/admin/dashboard" id="nav-admin">⚙️ Admin</a>
+                        <a href="${ctxPath}/admin/dashboard" id="nav-admin"><i class="fa-solid fa-gear" aria-hidden="true"></i> Admin</a>
                     </c:if>
                     <c:if test="${loggedUser.utype == 'mod'}">
-                        <a href="${ctxPath}/mod/dashboard" id="nav-mod">🛠️ Panel</a>
+                        <a href="${ctxPath}/mod/dashboard" id="nav-mod"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Panel</a>
                     </c:if>
                     <a href="${ctxPath}/profile" id="nav-profile">
                         <span class="nav-user">
@@ -67,10 +68,10 @@
                             </span>
                         </span>
                     </a>
-                    <a href="${ctxPath}/logout" id="nav-logout">↩️ Logout</a>
+                    <a href="${ctxPath}/logout" id="nav-logout"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Logout</a>
                 </c:when>
                 <c:otherwise>
-                    <a href="${ctxPath}/login" id="nav-login">🔑 Login</a>
+                    <a href="${ctxPath}/login" id="nav-login"><i class="fa-solid fa-key" aria-hidden="true"></i> Login</a>
                     <a href="${ctxPath}/register" id="nav-register" class="btn btn-primary btn-sm" style="color:white;">Register</a>
                 </c:otherwise>
             </c:choose>

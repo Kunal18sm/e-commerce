@@ -24,8 +24,13 @@ const ToastManager = {
         const toast = document.createElement('div');
         toast.className = `toast toast-${type}`;
 
-        const icons = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️' };
-        toast.innerHTML = `<span>${icons[type] || '📢'}</span><span>${message}</span>`;
+        const icons = {
+            success: '<i class="fa-solid fa-circle-check" aria-hidden="true"></i>',
+            error: '<i class="fa-solid fa-circle-xmark" aria-hidden="true"></i>',
+            warning: '<i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>',
+            info: '<i class="fa-solid fa-circle-info" aria-hidden="true"></i>'
+        };
+        toast.innerHTML = `<span class="toast-icon">${icons[type] || '<i class="fa-solid fa-bullhorn" aria-hidden="true"></i>'}</span><span>${message}</span>`;
 
         this.container.appendChild(toast);
 

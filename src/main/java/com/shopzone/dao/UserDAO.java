@@ -10,12 +10,16 @@ import java.util.List;
  * Data Access Object for User operations.
  */
 public class UserDAO {
+    private final ThreadLocal<String> lastLoginError = new ThreadLocal<String>();
+
+    public static final String LOGIN_ERROR_DB = "db";
 
     /**
      * Authenticate user by username and password.
      * Returns User object if credentials are valid, null otherwise.
      */
     public User login(String username, String password) {
+        clearLastLoginError();
         String sql = "SELECT l.uid, l.uname, l.utype, l.enabled, l.created_at, " +
                      "d.name, d.email, d.mobile, d.address " +
                      "FROM login l LEFT JOIN user_details d ON l.uid = d.uid " +
@@ -33,11 +37,22 @@ public class UserDAO {
                 return mapUser(rs);
             }
         } catch (SQLException e) {
+            lastLoginError.set(LOGIN_ERROR_DB);
             e.printStackTrace();
         } finally {
             DBConnection.close(rs, ps, conn);
         }
         return null;
+    }
+
+    public String consumeLastLoginError() {
+        String error = lastLoginError.get();
+        lastLoginError.remove();
+        return error;
+    }
+
+    private void clearLastLoginError() {
+        lastLoginError.remove();
     }
 
     /**

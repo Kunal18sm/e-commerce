@@ -9,11 +9,11 @@
         <div class="sidebar-section">
             <div class="sidebar-label">Admin Panel</div>
             <nav class="sidebar-nav">
-                <a href="${pageContext.request.contextPath}/admin/dashboard"><span class="nav-icon">📊</span> Dashboard</a>
-                <a href="${pageContext.request.contextPath}/admin/products" class="active"><span class="nav-icon">📦</span> Products</a>
-                <a href="${pageContext.request.contextPath}/admin/users"><span class="nav-icon">👥</span> Users</a>
-                <a href="${pageContext.request.contextPath}/admin/moderators"><span class="nav-icon">🛡️</span> Moderators</a>
-                <a href="${pageContext.request.contextPath}/admin/orders"><span class="nav-icon">🛒</span> Orders</a>
+                <a href="${pageContext.request.contextPath}/admin/dashboard"><span class="nav-icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></span> Dashboard</a>
+                <a href="${pageContext.request.contextPath}/admin/products" class="active"><span class="nav-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></span> Products</a>
+                <a href="${pageContext.request.contextPath}/admin/users"><span class="nav-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span> Users</a>
+                <a href="${pageContext.request.contextPath}/admin/moderators"><span class="nav-icon"><i class="fa-solid fa-user-shield" aria-hidden="true"></i></span> Moderators</a>
+                <a href="${pageContext.request.contextPath}/admin/orders"><span class="nav-icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></span> Orders</a>
             </nav>
         </div>
     </aside>
@@ -21,23 +21,23 @@
     <div class="dashboard-content">
         <div class="flex-between mb-3">
             <div>
-                <h1>📦 Manage Products</h1>
+                <h1><i class="fa-solid fa-box-open" aria-hidden="true"></i> Manage Products</h1>
                 <p class="text-muted">Add, search, and manage your product catalog</p>
             </div>
             <button class="btn btn-primary" onclick="ModalManager.open('addProductModal')" id="add-product-btn">
-                ➕ Add Product
+                <i class="fa-solid fa-plus" aria-hidden="true"></i> Add Product
             </button>
         </div>
         <c:if test="${param.error == 'invalidimage'}">
-            <div class="alert alert-danger">⚠️ Invalid image type. Use JPG, JPEG, PNG, WEBP, or GIF.</div>
+            <div class="alert alert-danger"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Invalid image type. Use JPG, JPEG, PNG, WEBP, or GIF.</div>
         </c:if>
         <c:if test="${param.error == 'invalid'}">
-            <div class="alert alert-danger">⚠️ Please enter a valid product name and price.</div>
+            <div class="alert alert-danger"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Please enter a valid product name and price.</div>
         </c:if>
 
         <!-- Search -->
         <form action="${pageContext.request.contextPath}/admin/products" method="GET" class="search-bar mb-3" style="max-width:400px;">
-            <span class="search-icon">🔍</span>
+            <span class="search-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
             <input type="text" name="q" placeholder="Search products..." value="${searchQuery}">
             <button type="submit">→</button>
         </form>
@@ -86,7 +86,7 @@
                                                 <input type="hidden" name="id" value="${p.productId}">
                                                 <button type="button" class="btn btn-sm btn-danger"
                                                         onclick="confirmDelete('Delete product: ${p.name}?', 'delete-product-${p.productId}')">
-                                                    🗑️ Delete
+                                                    <i class="fa-solid fa-trash" aria-hidden="true"></i> Delete
                                                 </button>
                                             </form>
                                         </div>
@@ -105,8 +105,8 @@
 <div class="modal-overlay" id="addProductModal">
     <div class="modal">
         <div class="modal-header">
-            <h3>➕ Add New Product</h3>
-            <button class="modal-close" onclick="ModalManager.close('addProductModal')">✕</button>
+            <h3><i class="fa-solid fa-plus" aria-hidden="true"></i> Add New Product</h3>
+            <button class="modal-close" onclick="ModalManager.close('addProductModal')"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         </div>
         <form action="${pageContext.request.contextPath}/admin/products" method="POST" enctype="multipart/form-data">
             <div class="modal-body">
@@ -148,7 +148,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="ModalManager.close('addProductModal')">Cancel</button>
-                <button type="submit" class="btn btn-primary">➕ Add Product</button>
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus" aria-hidden="true"></i> Add Product</button>
             </div>
         </form>
     </div>

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Login to ShopZone - Your premium online shopping destination.">
     <title>Login | ShopZone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
@@ -14,20 +15,20 @@
 <div class="auth-wrapper">
     <div class="auth-card animate-scaleIn">
         <div class="auth-header">
-            <div class="auth-logo">🛍️</div>
+            <div class="auth-logo"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i></div>
             <h2>Welcome Back</h2>
             <p>Sign in to your ShopZone account</p>
         </div>
 
         <div class="auth-body">
             <c:if test="${not empty error}">
-                <div class="alert alert-danger">⚠️ ${error}</div>
+                <div class="alert alert-danger"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> ${error}</div>
             </c:if>
             <c:if test="${not empty success}">
-                <div class="alert alert-success">✅ ${success}</div>
+                <div class="alert alert-success"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> ${success}</div>
             </c:if>
             <c:if test="${param.msg == 'loggedout'}">
-                <div class="alert alert-info">ℹ️ You have been logged out successfully.</div>
+                <div class="alert alert-info"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> You have been logged out successfully.</div>
             </c:if>
 
             <form action="${pageContext.request.contextPath}/login" method="POST" id="loginForm">
@@ -45,7 +46,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block btn-lg" id="loginBtn">
-                    🔑 Sign In
+                    <i class="fa-solid fa-key" aria-hidden="true"></i> Sign In
                 </button>
             </form>
         </div>

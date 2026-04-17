@@ -5,15 +5,15 @@
 
 <div class="container page-wrapper">
     <div class="page-header">
-        <h1>👤 My Profile</h1>
+        <h1><i class="fa-solid fa-user" aria-hidden="true"></i> My Profile</h1>
         <p>Manage your account settings and personal information</p>
     </div>
 
     <c:if test="${not empty error}">
-        <div class="alert alert-danger">⚠️ ${error}</div>
+        <div class="alert alert-danger"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> ${error}</div>
     </c:if>
     <c:if test="${not empty success}">
-        <div class="alert alert-success">✅ ${success}</div>
+        <div class="alert alert-success"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> ${success}</div>
     </c:if>
 
     <c:set var="u" value="${profileUser != null ? profileUser : loggedUser}"/>
@@ -29,8 +29,8 @@
             <p class="text-small text-muted">@${u.uname}</p>
             <hr style="margin:16px 0; border:none; border-top:1px solid var(--border-color);">
             <p class="text-small text-muted">
-                📧 ${not empty u.email ? u.email : 'Not set'}<br>
-                📱 ${not empty u.mobile ? u.mobile : 'Not set'}
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i> ${not empty u.email ? u.email : 'Not set'}<br>
+                <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i> ${not empty u.mobile ? u.mobile : 'Not set'}
             </p>
         </div>
 
@@ -38,7 +38,7 @@
         <div>
             <!-- Update Profile -->
             <div class="card mb-3">
-                <div class="card-header">✏️ Edit Profile</div>
+                <div class="card-header"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Edit Profile</div>
                 <div class="card-body">
                     <form action="${pageContext.request.contextPath}/profile" method="POST" id="profileForm">
                         <input type="hidden" name="action" value="updateProfile">
@@ -67,14 +67,14 @@
                             <textarea id="profile-address" name="address" class="form-control" rows="3">${u.address}</textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" id="update-profile-btn">💾 Save Changes</button>
+                        <button type="submit" class="btn btn-primary" id="update-profile-btn"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Save Changes</button>
                     </form>
                 </div>
             </div>
 
             <!-- Change Password -->
             <div class="card">
-                <div class="card-header">🔒 Change Password</div>
+                <div class="card-header"><i class="fa-solid fa-lock" aria-hidden="true"></i> Change Password</div>
                 <div class="card-body">
                     <form action="${pageContext.request.contextPath}/profile" method="POST" id="passwordForm">
                         <input type="hidden" name="action" value="changePassword">
@@ -98,7 +98,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-warning" id="change-password-btn">🔑 Change Password</button>
+                        <button type="submit" class="btn btn-warning" id="change-password-btn"><i class="fa-solid fa-key" aria-hidden="true"></i> Change Password</button>
                     </form>
                 </div>
             </div>
