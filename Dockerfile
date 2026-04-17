@@ -1,14 +1,15 @@
-FROM maven:3.9.9-eclipse-temurin-8
-
+FROM maven:3.9.9-eclipse-temurin-8 AS build
 WORKDIR /app
-
-# Copy project sources
 COPY . .
+RUN mvn -DskipTests clean package
 
-# Render provides PORT at runtime (default 10000)
-ENV PORT=10000
+FROM tomcat:9.0-jdk8-temurin
+
+# Deploy as ROOT.war so app opens at "/" on Render
+RUN rm -rf /usr/local/tomcat/webapps/*
+COPY --from=build /app/runtime_build_v2/ShopZone.war /usr/local/tomcat/webapps/ROOT.war
+
 EXPOSE 10000
 
-# Start embedded Tomcat on Render port and bind to all interfaces.
-# Use root context so Render base URL works without /ShopZone suffix.
-CMD ["sh", "-c", "mvn -DskipTests tomcat7:run -Dmaven.tomcat.hostName=0.0.0.0 -Dmaven.tomcat.port=${PORT:-10000} -Dmaven.tomcat.path=/"]
+# Bind Tomcat connector to Render's PORT (default 10000)
+CMD ["sh", "-c", "sed -i \"s/port=\\\"8080\\\"/port=\\\"${PORT:-10000}\\\"/\" /usr/local/tomcat/conf/server.xml && catalina.sh run"]
